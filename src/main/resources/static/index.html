@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinobilletter</title>
+    <!-- <script type="text/javascript" src="Oblig.js"></script> -->
+</head>
+
+<body>
+<h1>Bestilling av kinobilletter</h1>
+<form id="bestillingForm">
+    <label for="filmer">Velg film: </label>
+    <select name="filmer" id="filmer" required>
+        <option value="" selected disabled>Velg film her</option>
+        <option value="goodBadUgly">The Good, the Bad and the Ugly</option>
+        <option value="nottingHill">Notting Hill</option>
+        <option value="phantomThread">Phantom Thread</option>
+        <option value="babe">Babe</option>
+    </select><span id="filmFeil"></span>
+    <br><br>
+    <label for="antall">Antall</label>
+    <input type="number" id="antall" min="1" required><span id="antallFeil"></span>
+    <br><br>
+    <label for="fornavn">Fornavn</label>
+    <input id="fornavn" required><span id="fornavnFeil"></span>
+    <br>
+    <label for="etternavn">Etternavn</label>
+    <input id="etternavn" required><span id="etternavnFeil"></span>
+    <br>
+    <label for="telefonnr">Telefonnr</label>
+    <input id="telefonnr" pattern="[0-9]{8}" required><span id="telefonnrFeil"></span>
+    <br>
+    <label for="epost">Epost</label>
+    <input id="epost" type="email" required><span id="epostFeil"></span>
+    <br>
+    <input type="button" value="Kjøp billett" onClick="leggInnBestilling()">
+</form>
+<h3>Alle billetter</h3>
+<p id="alleBilletter"></p>
+<input type="button" value="Slett alle billettene" onClick="slettBilletter()">
+<script type="text/javascript" src="Oblig.js"></script>
+</body>
+</html>
