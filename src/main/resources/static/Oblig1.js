@@ -1,5 +1,6 @@
 let bestillinger = [];
 
+// Inputvalidering av alle feltene
 function validering() {
     let finnesFeil = false;
     let film = document.getElementById("filmer");
@@ -31,6 +32,8 @@ function validering() {
 
     return finnesFeil;
 }
+
+// Skriver ut arrayet med bestillingsobjekter på en leselig måte
 function skrivUt() {
     let ut = "";
     for (let bestilling of bestillinger) {
@@ -43,12 +46,16 @@ function skrivUt() {
     document.getElementById("alleBilletter").innerHTML = ut;
 }
 
+// Legger inn bestilling, ligger som onClick på "Kjøp billetter"-knappen
 function leggInnBestilling() {
+    // Fjerner eventuelle feilmeldinger
     let span = document.getElementsByTagName("span");
     for (let element of span) {
         element.innerHTML = "";
     }
+
     let feil = validering();
+    // Hvis valideringen lykkes legges bestillingen inn i arrayet
     if (!feil) {
         let film = document.getElementById("filmer").value;
         let antall = document.getElementById("antall").value;
@@ -67,12 +74,14 @@ function leggInnBestilling() {
         };
 
         bestillinger.push(bestilling);
+        // Skriver ut bestillingene
         skrivUt();
-        console.log(antall);
+        // Nullstiller inputfeltene
         document.getElementById("bestillingForm").reset();
     }
 }
 
+// Tømmer arrayet og kaller skriv ut for å reflektere dette på skjermen
 function slettBilletter() {
     bestillinger = [];
     skrivUt();
